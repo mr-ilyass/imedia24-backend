@@ -48,7 +48,7 @@ class ProductController(private val productService: ProductService) {
     @GetMapping("/products", produces = ["application/json;charset=utf-8"])
     @Operation(
         summary = "Find products by SKU query",
-        description = "Retrieves products based on a SKU query parameter.",
+        description = "Retrieves product based on a SKU query parameter.",
         responses = [ApiResponse(
             responseCode = "200", description = "Products found"
         ), ApiResponse(responseCode = "404", description = "Product not found", content = [Content()])]

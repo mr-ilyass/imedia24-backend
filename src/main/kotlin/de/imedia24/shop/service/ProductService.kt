@@ -30,27 +30,13 @@ class ProductService(private val productRepository: ProductRepository) {
     }
 
     fun updateProduct(productToUpdate: PartialProductUpdateRequest): ProductResponse? {
-        // Retrieve the existing product based on the SKU
         val existingProduct = productRepository.findBySku(productToUpdate.sku) ?: return null
-
-        // If the product doesn't exist, return null
-        val updatedProduct = ProductEntity(
-            sku = existingProduct.sku,
-            name = productToUpdate.name,
-            description = productToUpdate.description,
-            price = productToUpdate.price,
-            createdAt = existingProduct.createdAt,
-            updatedAt = ZonedDateTime.now()
+        val updatedProduct = existingProduct.copy(
+                name = productToUpdate.name,
+                description = productToUpdate.description ?: existingProduct.description ?: "",
+                price = productToUpdate.price,
+                updatedAt = ZonedDateTime.now()
         )
-
-        productRepository.save(updatedProduct)
-
-        // Create and return a ProductResponse object representing the updated product
-        return ProductResponse(
-            sku = updatedProduct.sku,
-            name = updatedProduct.name,
-            description = updatedProduct.description?: "",
-            price = updatedProduct.price
-        )
+        return productRepository.save(updatedProduct).toProductResponse()
     }
 }
