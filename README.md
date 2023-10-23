@@ -28,5 +28,5 @@ docker build -t product-service .
 docker run -p 8080:8080 product-service
 ```
 
-- You can now access the application at http://<hostname>:8080/ 
-- Additionally, you can explore the API documentation by accessing Swagger UI at http://<hostname>:8080/swagger-ui.html
+- You can now access the application at http://\<hostname\>:8080/ 
+- Additionally, you can explore the API documentation by accessing Swagger UI at http://\<hostname\>:8080/swagger-ui.html
