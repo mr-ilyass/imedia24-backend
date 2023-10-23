@@ -35,6 +35,11 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	implementation("com.h2database:h2:1.4.200")
 
+	implementation("org.springdoc:springdoc-openapi-data-rest:1.4.3")
+	implementation("org.springdoc:springdoc-openapi-ui:1.4.3")
+
+	implementation("org.springdoc:springdoc-openapi-kotlin:1.4.3")
+
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
@@ -48,4 +53,12 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+}
+
+tasks {
+
+	jar {
+		archiveBaseName.set("product-service")
+	}
+
 }

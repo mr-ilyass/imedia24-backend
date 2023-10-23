@@ -1,16 +1,32 @@
+
+<div align="center">
+
 # iMedia24 Coding challenge
 
-### Reference Documentation
-For further reference, please consider the following sections:
+</div>
 
-* [Official Gradle documentation](https://docs.gradle.org)
-* [Official Kotlin documentation](https://kotlinlang.org/docs/home.html)
-* [Spring Boot Gradle Plugin Reference Guide](https://docs.spring.io/spring-boot/docs/2.4.3/gradle-plugin/reference/html/)
-* [Create an OCI image](https://docs.spring.io/spring-boot/docs/2.4.3/gradle-plugin/reference/html/#build-image)
-* [Flyway database migration tool](https://flywaydb.org/documentation/)
 
-### Additional Links
-These additional references should also help you:
 
-* [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
+## Dockerized our Product Service
+### Prerequisites
 
+Before proceeding, ensure that you have the following installed on your machine:
+* Docker: [Installation Guide](https://docs.docker.com/get-docker/)
+
+### Usage
+Follow the steps below to build and run your Kotlin application using Dockerfile:
+- Open a terminal and navigate to the directory containing the Dockerfile and the application files.
+- Build the Docker image using the following command:
+
+```
+docker build -t product-service .
+```
+
+- Once the image is built, you can run the Docker container using the following command:
+
+```
+docker run -p 8080:8080 product-service
+```
+
+- You can now access the application at http://<hostname>:8080/ 
+- Additionally, you can explore the API documentation by accessing Swagger UI at http://<hostname>:8080/swagger-ui.html

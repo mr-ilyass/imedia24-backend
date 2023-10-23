@@ -1,0 +1,15 @@
+image: gradle:jdk8
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - gradle build --no-daemon
+
+test:
+  stage: test
+  script:
+    - gradle test --no-daemon
